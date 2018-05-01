@@ -1,28 +1,22 @@
-# A2pDemos
+# Intro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
+This will be a set of demos for [a2p](https://github.com/Shadowstep33/Angular2Pixi). Currently, it is just an ugly webpage with the minimal code needed to get started. 
 
-## Development server
+# Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Once you clone the repo, the following should get you started
 
-## Code scaffolding
+```
+npm i
+ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+It is currently serving from the default port of 4200. If you have any problems please raise an issue.
 
-## Build
+# Roadmap of demos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Animations
+- Dynamic Sprites/Text
+- Interaction
+- Menus
+- Scene/Layer management
