@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import * as PIXI from 'pixi.js';
-import { PixiService } from 'angular2pixi';
+import { PixiService, MenuComponent } from 'angular2pixi';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,8 @@ import { PixiService } from 'angular2pixi';
 export class AppComponent {
   mainStage: PIXI.Container;
   menuContainer: PIXI.Container;
+
+  @ViewChild(MenuComponent) menu: MenuComponent;
 
   currentDemo = "sprite";
 
@@ -28,6 +30,15 @@ export class AppComponent {
 
     //Init layers
     this.initLayers();
+
+    this.animate();
+  }
+
+  animate() {
+    if (this.menu)
+      this.menu.positionItems();
+
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 
   initLayers() {

@@ -1,24 +1,23 @@
 <div>
-  <h1>A2P Demos:</h1>
+  <div class="menu">
+    <h1>A2P Demos:</h1>
+    <ul>
+      <li (click)="chooseDemo('sprite')">Sprites</li>
+      <li (click)="chooseDemo('hmenu')">Grid Menu</li>
+      <li (click)="chooseDemo('lmenu')">List Menu</li>
+      <li (click)="chooseDemo('animation')">Animations</li>
+      <li (click)="chooseDemo('filter')">Filters</li>
+      <li (click)="chooseDemo('interaction')">Interaction</li>
+    </ul>
+  </div>
 
-  <div>
-    <div style="width: 50%; float: left;">
-      <ul>
-        <li (click)="chooseDemo('sprite')">Sprites</li>
-        <li (click)="chooseDemo('hmenu')">Grid Menu</li>
-        <li (click)="chooseDemo('lmenu')">List Menu</li>
-        <li (click)="chooseDemo('animation')">Animations</li>
-        <li (click)="chooseDemo('filter')">Filters</li>
-        <li (click)="chooseDemo('interaction')">Interaction</li>
-      </ul>
-
-      <div>
-        <h2>Example Code</h2>
-        {{ renderTutorial() }}
-      </div>
+  <div class="content-container">
+    <div class="demo-code">
+      <h2>Example Code</h2>
+      {{ renderTutorial() }}
     </div>
 
-    <div style="width: 50%; float: right;">
+    <div class="demo-render">
       <canvas id="worldCanvas"></canvas>
 
       <sprite *ngIf="currentDemo == 'sprite'" imgUrl="./assets/koffing.png" [container]="mainStage" x="0" y="0" scale="0.25" [anchor]="{ x: 0, y: 0 }">
@@ -33,23 +32,19 @@
       <filter-effect *ngIf="currentDemo == 'filter'" [container]="mainStage" filterName="blur">
       </filter-effect>
 
-
       <sprite *ngIf="currentDemo == 'interaction'" [handleClick]="helloWorld" imgUrl="./assets/koffing.png" [container]="mainStage"
         x="0" y="0" scale="0.25" [anchor]="{ x: 0, y: 0 }">
       </sprite>
 
-
-      <menu *ngIf="currentDemo == 'hmenu'" [container]="menuContainer" x="100" y="200" w="500" [itemWidth]="150" [itemHeight]="150"
-        [isGrid]="true">
-        <sprite imgUrl="./assets/koffing.png" scale="0.25" [container]="menuContainer.children[0]" fontSize="32px">
-        </sprite>
-        <sprite imgUrl="./assets/koffing.png" scale="0.25" [container]="menuContainer.children[0]" fontSize="32px">
-        </sprite>
-        <sprite imgUrl="./assets/koffing.png" scale="0.25" [container]="menuContainer.children[0]" fontSize="32px">
+      <menu *ngIf="currentDemo == 'hmenu'" [container]="menuContainer" x="100" y="200" w="500" [rowLength]="3" [itemWidth]="150"
+        [itemHeight]="150" [isGrid]="true" #menu>
+        <sprite *ngFor="let x of [1,2,3,4,5,6,7,8]" imgUrl="./assets/koffing.png" scale="0.25" [container]="menuContainer.children[0]"
+          fontSize="32px" [text]="'Item '+x">
         </sprite>
       </menu>
 
-      <menu *ngIf="currentDemo == 'lmenu'" [container]="menuContainer" x="100" y="100" w="500" [itemWidth]="150" [itemHeight]="150">
+      <menu *ngIf="currentDemo == 'lmenu'" [container]="menuContainer" x="100" y="100" w="500" [itemWidth]="90" [itemHeight]="80"
+        #menu>
         <sprite *ngFor="let x of [1,2,3,4,5,6,7,8]" imgUrl="./assets/koffing.png" scale="0.25" [container]="menuContainer.children[0]"
           fontSize="32px" [text]="'Item '+x">
         </sprite>

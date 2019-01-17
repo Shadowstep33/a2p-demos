@@ -1,0 +1,33 @@
+body, .content-container {
+  background-color: slategray;
+}
+
+.menu {
+  width: 120px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-right: 1px solid black;
+}
+
+.content-container {
+  position: fixed; 
+  left: 120px;
+  height: 100%;
+  width: calc(100% - 120px);
+}
+
+.demo-code, .demo-render {
+  background-color: white;
+}
+
+.demo-code {
+  float: left;
+  height: auto;
+}
+
+.demo-render {
+  float: right;
+  height: 500px;
+}
